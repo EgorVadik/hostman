@@ -20,12 +20,15 @@ export default function Response() {
         })
     }, [response, jsonEditor])
 
-    return loading ? (
-        <div className='animate-spin border-l-2 border-r-2 border-t border-slate-900 dark:border-slate-100 w-16 h-16 rounded-full m-auto mt-16' />
-    ) : (
-        <div
-            ref={parent}
-            className='h-80 dark:bg-slate-950 overflow-y-auto text-base'
-        ></div>
+    return (
+        <div className='relative'>
+            <div
+                ref={parent}
+                className='h-80 dark:bg-slate-950 overflow-y-auto text-base'
+            ></div>
+            {loading && (
+                <div className='animate-spin border-l-2 border-r-2 border-t border-slate-900 dark:border-slate-100 w-16 h-16 rounded-full m-auto mt-16 absolute right-1/2 bottom-1/3' />
+            )}
+        </div>
     )
 }
